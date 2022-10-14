@@ -6,3 +6,4 @@ It was inspired by the observation that the tool provided by the Center for Medi
 
 This visualization contains only a small slice of the entire data set. In order to add more parameters, the Center for Medicare and Medicaid would need to provide a publicly facing API for the data
 
+Built using [ParcelJS](https://parceljs.org/)
