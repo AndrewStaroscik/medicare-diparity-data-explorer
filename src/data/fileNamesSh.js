@@ -1,0 +1,1 @@
+export default {"names":["Prevalence_Diabetes_all_Black","Prevalence_Diabetes_all_White","Prevalence_Diabetes_lt65_Black","Prevalence_Diabetes_lt65_White","Prevalence_Obesity_all_Black","Prevalence_Obesity_all_White","Prevalence_Obesity_lt65_Black"]}

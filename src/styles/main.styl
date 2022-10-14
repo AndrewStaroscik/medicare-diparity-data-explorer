@@ -1,0 +1,198 @@
+*,
+*::before,
+*::after
+  box-sizing border-box
+
+/* imports */
+
+@import "_variables"
+@import "_fonts"
+
+
+/* general styles */
+
+html
+  scroll-behavior smooth
+
+body 
+ 
+  font-family: ff-main, arial, sans-serif
+  font-size: fs-body
+  font-weight: fw-reg
+
+#mainFrame,
+#histodiv
+  width 800px
+  margin 0 auto  
+
+img 
+  display block
+  max-width 100%
+
+strong 
+  font-weight: fw-bold
+
+:focus
+  outline 3px solid clr-accent
+  outline-offset 3px
+
+
+
+@media (min-width: 800px)
+  body
+    font-size: fs-body-b
+
+/* Button */
+
+.about-toggle
+  padding .5em 1em
+  background clr-accent
+  border-radius 12px
+  visibility visible
+  color clr-dark
+  text-decoration none
+  cursor pointer
+  font-size .9rem
+  text-transform uppercase
+  letter-spacing 2px
+  font-weight fw-bold
+  transition transform 200ms ease-in-out
+
+.about-toggle:hover
+  transform: scale(1.2)
+
+.about
+  display none
+  position fixed
+  padding 5px
+  left 150px
+  top 200px
+  max-width 550px
+  border 6px solid clr-accent
+  background #fff
+  border-radius 15px
+
+.about-close  
+  color #787878
+  float right
+  cursor pointer
+
+.about-inner
+  padding 3em 2em
+
+
+/* Typography */
+
+ h1, 
+ h2, 
+ h3 
+ font-family ff-head
+   line-height 1
+   margin 0
+
+ h1
+   font-size fs-h1 
+ 
+ h2 
+  font-size fs-h2
+ 
+ h3 
+   font-size fs-h3
+
+
+@media (min-width: 800px)
+  body
+    font-size fs-body-b
+  
+  h1
+   font-size fs-h1-b 
+ 
+ h2 
+  font-size fs-h2-b
+ 
+ h3 
+   font-size fs-h3-b
+     
+/* header */  
+
+.logo 
+  max-width 250px
+
+
+.options-container
+  padding 10px
+  display flex0.2
+  flex-direction column
+  justify-content space-evenly
+
+.set-parent
+  padding 1em
+  border solid 2px #006954
+  border-radius 10px
+
+/* vis */
+
+.vis-wrapper
+  display flex
+
+.pts,
+.rpts 
+  fill-opacity .2
+  stroke#d01c8b 
+  stroke-width 1px
+  stroke-opacity .7
+
+.x-bar
+  fill #29c3a5
+
+.regline
+  stroke black
+  stroke-width 1.5px
+
+div.tooltip 
+  position absolute
+  text-align center
+  padding .5em .25em
+  font 12px sans-serif
+  background #affced
+  border 1px solid #006954
+  border-radius 8px
+  pointer-events none
+
+.box-p
+  stroke #666
+  stroke-width 1.5
+  fill none
+
+.bp-outl
+  stroke #666
+  stroke-width 1
+  fill #444
+  fill-opacity 0.1
+
+
+
+
+/* footer */
+
+.footer 
+  background #111
+  color clr-accent
+  text-align center
+  padding 2.5em 0
+
+.footer a 
+  color inherit
+  text-decoration none
+
+.footer__link 
+  font-size fs-h3
+  font-weight fw-bold
+
+.footer__link:hover,
+.social-list__link:hover
+  opacity .7
+
+.footer__link:hover
+  text-decoration underline
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicare County Data Viewer</title>
+</head>
+<body>
+  <header>
+    <div class='logo'>
+      <img src='./img/amsphdtext.png' alt=''>
+    </div>
+    <!-- <button class='options-toggle'>
+      <span class='options-toggle__label'>Options</span>
+    </button> -->
+  </header>
+
+
+    
+
+
+<!-- Introduction -->
+
+<section class='intro' id='home'>
+  <h1 class='section__title section__title--intro'>
+    Medicare Disparity Data
+  </h1>
+  <p class='section__subtitle section__subtitle--intro'>
+    Visual exploration of county level health data using a sample of 2019 data
+  </p>
+</section>
+
+<!-- Visualization area -->
+<div id="vis-wrapper" class="vis-wrapper">
+  <div id='options-container' class='options-container'>
+    <div class="buttonDiv">
+      <button class='about-toggle' id='about-button'>
+        <span class='about-toggle__label'>About</span>
+    </button>
+    </div>
+    <div>Select Data:</div>
+    <div id="set-parent-a" class="set-parent">
+      <p>X-axis Data:</p>
+      <p>
+        Measure: <select name="measure-a" id="option-select__measure-a" class="option-select__measure-a option-select-a option-select"></select>
+      </p>
+      <p>
+        Condition: <select name="condition-a" id="option-select__condition-a" class="option-select__condition-a option-select-a option-select"></select>
+      </p>
+      <p>
+        Race: <select name="race-a" id="option-select__race-a" class="option-select__race-a option-select-a option-select"></select>
+      </p>
+      <p>
+        Age: <select name="age-a" id="option-select__age-a" class="option-select__age-a option-select-a option-select"></select>
+      </p>
+    </div>
+    <div id="set-parent-b" class="set-parent">
+      <p>Y-axis Data:</p>
+      <p>
+        Measure: <select name="measure-b" id="option-select__measure-b" class="option-select__measure-b option-select-b option-select"></select>
+      </p>
+      <p>
+        Condition: <select name="condition-b" id="option-select__condition-b" class="option-select__condition-b option-select-b option-select"></select>
+      </p>
+      <p>
+        Race: <select name="race-b" id="option-select__race-b" class="option-select__race-b option-select-b option-select"></select>
+      </p>
+      <p>
+        Age: <select name="age-b" id="option-select__age-b" class="option-select__age-b option-select-b option-select"></select>
+      </p>
+    </div>
+  </div>
+  <div>
+    <div id="mainFrame" class="mainFrame"></div>
+    <div id='histodiv' class='histodiv'></div>
+  </div>
+</div>
+<div class="about" id="about">
+  <div class="about-close" id='about-close'>[ close ]</div>
+  <div class='about-inner'>
+    <p>This visualization explores data from the medicare disparity database, a collection of county-level health measures tracked by the Center for Medicare and Medicaid Services (CMS). It is presented as an alternative to the <a href ='https://data.cms.gov/tools/mapping-medicare-disparities-by-population'>mapping tool</a> created by the center.</p> 
+
+<p>This is a proof of concept demonstrating different approaches to data exploration. 
+  It contains only a tiny slice of the complete dataset from 2019,  as the CMS does not provide access to the data through a public-facing API.</p>
+
+<p>Read more about this visualization **here**</p>
+  </div>
+</div>
+
+
+<!-- Footer -->
+
+<div id="footer" class="footer">
+  <a href='mailto:hello@staroscik.com' class='footer__link'>hello@staroscik.com</a>
+</div>
+  
+  <script src="./index.js"></script>
+</body>
+</html>

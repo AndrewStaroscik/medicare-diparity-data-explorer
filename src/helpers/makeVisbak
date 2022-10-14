@@ -1,0 +1,65 @@
+import * as d3 from 'd3';
+import { equalIntervalBreaks } from 'simple-statistics';
+import makeDataArray from './makeDataArray';
+import regressionmb from './regressionmb';
+
+export default (gL) => {
+
+  // set vis dimensions
+  const width = gL.vis.totalWidth - gL.vis.margin.left - gL.vis.margin.right;
+  const height = gL.vis.totalHeight - gL.vis.margin.top - gL.vis.margin.bottom;
+
+  console.log(`width: ${width}`)
+  console.log(`height: ${height}`)
+
+  // get the data
+  let data = makeDataArray(gL.seriesA, gL.seriesB);
+  console.log(data.length);
+
+  let regLineInfo = regressionmb(data);
+
+  console.log(regLineInfo);
+
+  let stPt = d3.min(data, d => Number(d.x));
+  
+  let endPt = d3.max(data, d => Number(d.x));
+
+  let regLinePts = [
+    {x: stPt, y: (regLineInfo.m * stPt + regLineInfo.b)},
+    {x: endPt, y: (regLineInfo.m * endPt + regLineInfo.b)}
+  ];
+
+
+  //scale the axes based on data ranges
+  let xAxis = d3.scaleLinear()
+    .domain(d3.extent(data, d => Number(d.x)))
+    .range([0, width]);
+
+  let yAxis = d3.scaleLinear()
+    .domain(d3.extent(data, d => Number(d.y)))
+    .range([0, height]);
+
+    let lineFunc = d3.line()
+    .x(function (d) { return xAxis(d.x); })
+    .y(function (d) { return yAxis(d.y); })
+    .curve(d3.curveBasis);
+
+    // set local var for svg
+  let svg = gL.svgVis;
+
+  svg.selectAll('.pts')
+    .data(data)
+    .enter().append('circle')
+    .attr('class', d => `pts f-${d.f}`)
+    .attr('r', 6)
+    .attr("cx", function(d) { return xAxis(d.x); })
+    .attr("cy", function(d) { return yAxis(d.y); });
+
+  svg.append('path')
+    .datum(regLinePts)
+    .attr('class', 'regline')
+    .attr('d', lineFunc);
+    
+
+
+}
