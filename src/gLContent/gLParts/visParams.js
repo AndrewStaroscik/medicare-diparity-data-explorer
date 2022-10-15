@@ -5,6 +5,6 @@ export default {
     bottom: 50,
     left: 70
   },
-  totalWidth: 700,
-  totalHeight: 700
+  totalWidth: 550,
+  totalHeight: 550
 }

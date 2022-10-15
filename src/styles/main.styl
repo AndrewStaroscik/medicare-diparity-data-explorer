@@ -3,19 +3,12 @@
 *::after
   box-sizing border-box
 
-/* imports */
+// imports
 
-@import "_variables"
-@import "_fonts"
-
-
-/* general styles */
-
-html
-  scroll-behavior smooth
+@import "_variables.styl"
+@import "_fonts.styl"
 
 body 
- 
   font-family: ff-main, arial, sans-serif
   font-size: fs-body
   font-weight: fw-reg
@@ -42,7 +35,7 @@ strong
   body
     font-size: fs-body-b
 
-/* Button */
+// * Button */
 
 .about-toggle
   padding .5em 1em
@@ -66,7 +59,7 @@ strong
   position fixed
   padding 5px
   left 150px
-  top 200px
+  top 100px
   max-width 550px
   border 6px solid clr-accent
   background #fff
@@ -79,9 +72,10 @@ strong
 
 .about-inner
   padding 3em 2em
+  line-height 1.4
 
 
-/* Typography */
+// * Typography */
 
  h1, 
  h2, 
@@ -113,7 +107,7 @@ strong
  h3 
    font-size fs-h3-b
      
-/* header */  
+// * header */  
 
 .logo 
   max-width 250px
@@ -130,7 +124,7 @@ strong
   border solid 2px #006954
   border-radius 10px
 
-/* vis */
+// * vis */
 
 .vis-wrapper
   display flex
@@ -173,7 +167,7 @@ div.tooltip
 
 
 
-/* footer */
+// * footer */
 
 .footer 
   background #111
