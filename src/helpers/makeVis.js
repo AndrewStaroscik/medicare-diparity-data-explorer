@@ -51,7 +51,7 @@ export default (gL) => {
 
     let dataPtsUpdate = svg.selectAll('.pts')
       .data(data, d => d.f)
-      .attr('r', 6)
+      .attr('r', 4)
       .call(update => update.transition()
         .duration(visTransTime)
         .attr("cx", function(d) { return xScale(d.x); })
@@ -62,7 +62,7 @@ export default (gL) => {
     let dataPtsEnter = dataPtsUpdate
     .enter().append('circle')
     .attr('class', d => `pts f-${d.f} x-${d.x}  y-${d.y} c-${d.cn} s-${d.s}`)
-    .attr('r', 6)
+    .attr('r', 4)
     .attr("cx", function(d) { return xScale(d.x); })
     .attr("cy", function(d) { return yScale(d.y); })
     .on('mouseover', function(event,d) {
@@ -100,7 +100,7 @@ export default (gL) => {
 
   let dataPtsExit = dataPtsUpdate
     .exit() 
-    .attr('r', 6)
+    .attr('r', 4)
     .call(exit => exit.transition().duration(250)
       .attr('r', 0)
     )
@@ -169,15 +169,21 @@ export default (gL) => {
     // Y axis label
     svg.append('text')
       .attr('class', 'y-axis-label')
+      .style("font", "14px arial")
       .attr("text-anchor", "end")
       .attr("transform", "rotate(-90)")
       .attr("y", -gL.vis.margin.left+20)
-      .attr("x", -gL.vis.margin.top)
+      .attr("x", -gL.vis.margin.top);
   
   svg.select('.y-axis-label')
     .transition()
     .duration(visTransTime)
-    .text(`${gL.seriesB.m} of ${gL.seriesB.c} for ${gL.seriesB.r}s`);  
+    .text(() => {
+
+      let tmpTxt = (gL.seriesB.a == "All" ? '(all ages)' : '(under 65)') 
+
+      return `${gL.seriesB.m} of ${gL.seriesB.c} for ${gL.seriesB.r}s ${tmpTxt}`;
+    });  
 
   // regression eqn
   svg.append('text')
